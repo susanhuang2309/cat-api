@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>kitties</h1>
+    <button onclick="get()">hello kitty</button>
+    
+    <div id="caja "></div>
+
+    <script>
+        function get() {
+            fetch ('https://api.thecatapi.com/v1/images/search')
+            .then (respuesta => respuesta.json())
+            .then (data => {
+                const caja = document.getElementById('caja')
+                const img = document.createElement('img')
+                document.body.appendChild(img)
+                img.src = data[0].url
+            })
+        }
+    </script>
+</body>
+</html>
